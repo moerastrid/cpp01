@@ -6,11 +6,11 @@
 #    By: ageels <ageels@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/27 14:20:33 by ageels        #+#    #+#                  #
-#    Updated: 2023/03/30 17:44:25 by ageels        ########   odam.nl          #
+#    Updated: 2023/03/31 17:02:27 by ageels        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = "Unnecessary violence"
+NAME = Unnecessary_violence
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

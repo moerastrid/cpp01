@@ -6,28 +6,31 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/30 17:34:00 by ageels        #+#    #+#                 */
-/*   Updated: 2023/03/30 17:50:02 by ageels        ########   odam.nl         */
+/*   Updated: 2023/03/31 14:32:02 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+//#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		//HumanA bob("Bob", club);
-		//bob.attack();
-		club.setType("some other type of club");
-		//bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		//HumanB jim("Jim");
-		//jim.setWeapon(club);
-		//jim.attack();
-		club.setType("some other type of club");
-		//jim.attack();
-	}
-	return 0;
+	Weapon	sword("iron sword");
+	Weapon	hammer("warhammer");
+	Weapon	staff("magic staff");
+	HumanA	knight("Roderick", sword);
+	HumanB	wizard("Merlin");
+
+	knight.attack();
+	wizard.setWeapon(hammer);
+	wizard.attack();
+	sword.setType("long steel sword");
+	knight.attack();
+	wizard.setWeapon(staff);
+	wizard.attack();
+	staff.setType("small wand");
+	wizard.attack();
+	knight.attack();
+	return (0);
 }

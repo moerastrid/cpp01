@@ -6,11 +6,11 @@
 #    By: ageels <ageels@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/27 14:20:33 by ageels        #+#    #+#                  #
-#    Updated: 2023/03/30 17:44:10 by ageels        ########   odam.nl          #
+#    Updated: 2023/03/31 17:02:02 by ageels        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = "HI THIS IS BRAIN"
+NAME = HI_THIS_IS_BRAIN
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

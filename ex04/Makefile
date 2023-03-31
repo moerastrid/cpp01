@@ -6,17 +6,15 @@
 #    By: ageels <ageels@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/27 14:20:33 by ageels        #+#    #+#                  #
-#    Updated: 2023/03/31 17:02:12 by ageels        ########   odam.nl          #
+#    Updated: 2023/03/31 17:01:34 by ageels        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Moar_brainz
+NAME = Sed_is_for_losers
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp\
-	Zombie.cpp\
-	zombieHorde.cpp\
+SRC = main.cpp
 	
 OBJ_DIR = obj
 
@@ -30,7 +28,7 @@ $(NAME) : $(OBJ)
 $(OBJ_DIR) :
 	mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)/%.o : %.cpp | $(OBJ_DIR)
+$(OBJ_DIR)/%.o : %.cpp $(OBJ_DIR)
 	c++ $(FLAGS) -c $< -o $@
 
 clean :
