@@ -6,13 +6,13 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/31 15:03:30 by ageels        #+#    #+#                 */
-/*   Updated: 2023/03/31 17:37:15 by ageels        ########   odam.nl         */
+/*   Updated: 2023/03/31 19:26:20 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <fstream>
 #include <string>
+#include "inc/head.h"
 
 void	find_origin(std::string &origin, std::fstream &file)
 {
