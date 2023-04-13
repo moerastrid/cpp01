@@ -6,25 +6,24 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/31 15:03:30 by ageels        #+#    #+#                 */
-/*   Updated: 2023/03/31 19:26:20 by ageels        ########   odam.nl         */
+/*   Updated: 2023/04/13 14:27:02 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fstream>
-#include <string>
 #include "inc/head.h"
 
-void	find_origin(std::string &origin, std::fstream &file)
+void	set_text(std::string &text, std::fstream &file)
 {
 	std::string		line;
 
+	getline(file, line);
 	while (file.good())
 	{
+		text.append(line);
+		text.append("\n");
 		getline(file, line);
-		origin.append(line);
-		origin.append("\n");
 	}
-	std::cout << origin << std::endl;
+	text.append(line);
 }
 
 bool	ok_args(int argc, char **argv, std::fstream &file)
@@ -34,7 +33,7 @@ bool	ok_args(int argc, char **argv, std::fstream &file)
 		std::cerr << "wrong amount of arguments" << std::endl;
 		return (false);
 	}
-	file.open(argv[1], std::fstream::in |  std::fstream::out);
+	file.open(argv[1], std::fstream::in);
 	if (!file)
 	{
 		std::cerr << "no file" << std::endl;
@@ -45,12 +44,29 @@ bool	ok_args(int argc, char **argv, std::fstream &file)
 
 int main(int argc, char **argv)
 {
-	std::fstream	file;
-	std::string		origin;
+	std::fstream	f_source;
+	std::fstream	f_dest;
+	std::string		text;
+	std::size_t		found(0);
+	std::string		newname;
 	
-	if (ok_args(argc, argv, file) == false)
+	if (ok_args(argc, argv, f_source) == false)
 		return (1);
-	find_origin(origin, file);
-	file.close();
+	newname = argv[1];
+	newname.insert(newname.length(), ".replace");
+	set_text(text, f_source);
+	f_source.close();
+	f_dest.open(newname, std::fstream::in | std::fstream::out | std::fstream::trunc);
+	found = text.find(argv[2]);
+	while (found != std::string::npos)
+	{
+		text.erase(found, ((std::string)argv[2]).length());
+		text.insert(found, argv[3]);
+		found += ((std::string)argv[3]).length();
+		
+		found = text.find(argv[2], found);
+	}
+	f_dest << text;
+	f_dest.close();
 	return (0);
 }
