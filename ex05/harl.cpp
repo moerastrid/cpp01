@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/13 14:47:23 by ageels        #+#    #+#                 */
-/*   Updated: 2023/04/13 15:40:10 by ageels        ########   odam.nl         */
+/*   Updated: 2023/04/13 15:41:57 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	void	(Harl::*ptr_debug)(void) = &Harl::debug;
+	void	*ptr_debug(void) = &Harl::debug;
 
 	if (level.compare("DEBUG") == 0)
-		(*ptr_debug)();
+		(ptr_debug)();
 }
