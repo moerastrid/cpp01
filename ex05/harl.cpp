@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/13 14:47:23 by ageels        #+#    #+#                 */
-/*   Updated: 2023/04/13 15:41:57 by ageels        ########   odam.nl         */
+/*   Updated: 2023/04/17 15:17:41 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,36 @@
 
 void	Harl::debug(void)
 {
-	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
+	std::cout << "I love that color of lipstick on you!" << std::endl;
 }
 
 void	Harl::info(void)
 {
-	std::cout << "I cannot believe adding extra bacon costs more money. You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!" << std::endl;
+	std::cout << "You'd be prettier with long hair..." << std::endl;
 }
 
 void	Harl::warning(void)
 {
-std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << std::endl;
+	std::cout << "You should smile more." << std::endl;
 }
 
 void	Harl::error(void)
 {
-	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
+	std::cout << "Boys will be boys. You know how it is." << std::endl;
 }
 
-void	Harl::complain(std::string level)
+void	Harl::complain(std::string level) 
 {
-	void	*ptr_debug(void) = &Harl::debug;
-
-	if (level.compare("DEBUG") == 0)
-		(ptr_debug)();
+	void		(Harl::*harlptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string	complaints[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	
+	for (int i(0); i < 4; i++)
+	{
+		if (level.compare(complaints[i]) == 0)
+		{
+			(this->*harlptr[i])();
+			return ;
+		}
+	}
+	std::cout << "Just calm down! " << level << " isn't very ladylike" << std::endl;
 }

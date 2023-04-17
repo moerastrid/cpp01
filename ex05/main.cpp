@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/13 14:43:22 by ageels        #+#    #+#                 */
-/*   Updated: 2023/04/13 15:08:33 by ageels        ########   odam.nl         */
+/*   Updated: 2023/04/17 15:14:26 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int main()
 	harl.complain("INFO");
 	harl.complain("WARNING");
 	harl.complain("ERROR");
-	harl.complain("invalid");
+	harl.complain("Complaining");
 }
