@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/30 17:34:00 by ageels        #+#    #+#                 */
-/*   Updated: 2023/03/31 14:32:02 by ageels        ########   odam.nl         */
+/*   Updated: 2023/04/19 12:10:45 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main()
 	HumanA	knight("Roderick", sword);
 	HumanB	wizard("Merlin");
 
+	wizard.attack();
 	knight.attack();
 	wizard.setWeapon(hammer);
 	wizard.attack();
